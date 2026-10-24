@@ -50,8 +50,8 @@
     row.appendChild(tags);
 
     if (SLUG_RE.test(m.slug || "")) {
-      const link = el("a", "matiere-btn", "Voir les fiches →");
-      link.href = "../Fiches/matiere.html?m=" + m.slug;
+      const link = el("a", "matiere-btn", "Ouvrir →");
+      link.href = "matiere.html?m=" + m.slug;
       row.appendChild(link);
     }
     return row;

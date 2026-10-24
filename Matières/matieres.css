@@ -20,3 +20,19 @@
 }
 
 .matieres-retry:hover { background: var(--green-mid); }
+
+
+/* ── Page d'une matière : choix entre cours, fiches, exercices, documents ── */
+.card-meta {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--green-mid);
+}
+
+.subject-card.is-soon { opacity: 0.6; cursor: default; }
+.subject-card.is-soon:hover { transform: none; box-shadow: none; border-color: rgba(0, 0, 0, 0.06); }
+.subject-card.is-soon:hover::before { transform: scaleY(0); }
+.subject-card.is-soon .card-arrow { visibility: hidden; }
+.subject-card.is-soon .card-meta { color: var(--text-muted); }
