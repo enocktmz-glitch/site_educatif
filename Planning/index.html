@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planning — Révision Tle D</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="subpage.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a class="nav-logo" href="../index.html">
+        <span class="logo-icon">✦</span>Révision Tle D
+      </a>
+      <button class="burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html"          class="nav-link">Accueil</a></li>
+        <li><a href="../Matières/index.html" class="nav-link">Matières</a></li>
+        <li><a href="../Fiches/index.html"   class="nav-link">Fiches</a></li>
+        <li><a href="../Planning/index.html" class="nav-link active">Planning</a></li>
+        <li><a href="../CV/index.html"       class="nav-link cta">Concepteurs</a></li>
+        <li><a href="Cours Tle D/index.html" class="nav-link">Cours Tle D</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-hero">
+    <div class="page-hero-inner">
+      <span class="page-tag reveal">Organisation · Semaine</span>
+      <h1 class="page-title reveal">Planning de révision <em>📅</em></h1>
+      <p class="page-desc reveal">Organisation hebdomadaire pour bien préparer ton BAC, jour par jour.</p>
+    </div>
+    <div class="page-hero-bg"></div>
+  </header>
+
+  <!-- PLANNING TABLE -->
+  <main class="subpage-main">
+
+    <!-- Légende couleurs -->
+    <div class="legend reveal">
+      <span class="legend-item"><span class="dot" style="background:#52b788"></span>Sciences</span>
+      <span class="legend-item"><span class="dot" style="background:#9b51e0"></span>Lettres</span>
+      <span class="legend-item"><span class="dot" style="background:#2d9cdb"></span>Langues</span>
+      <span class="legend-item"><span class="dot" style="background:#f2994a"></span>Sciences Humaines</span>
+    </div>
+
+    <div class="planning-grid reveal">
+
+      <div class="planning-card sciences">
+        <div class="planning-day">Lundi</div>
+        <div class="planning-body">
+          <div class="planning-subject">📐 Maths</div>
+          <div class="planning-time">⏰ 09h – 11h</div>
+          <div class="planning-activity">Analyse &amp; exercices</div>
+        </div>
+        <div class="planning-dot"></div>
+      </div>
+
+      <div class="planning-card sciences">
+        <div class="planning-day">Mardi</div>
+        <div class="planning-body">
+          <div class="planning-subject">⚡ Physique</div>
+          <div class="planning-time">⏰ 10h – 12h</div>
+          <div class="planning-activity">Mécanique</div>
+        </div>
+        <div class="planning-dot"></div>
+      </div>
+
+      <div class="planning-card sciences">
+        <div class="planning-day">Mercredi</div>
+        <div class="planning-body">
+          <div class="planning-subject">🌿 SVT</div>
+          <div class="planning-time">⏰ 09h – 11h</div>
+          <div class="planning-activity">Génétique</div>
+        </div>
+        <div class="planning-dot"></div>
+      </div>
+
+      <div class="planning-card lettres">
+        <div class="planning-day">Jeudi</div>
+        <div class="planning-body">
+          <div class="planning-subject">📝 Français</div>
+          <div class="planning-time">⏰ 14h – 16h</div>
+          <div class="planning-activity">Dissertation</div>
+        </div>
+        <div class="planning-dot"></div>
+      </div>
+
+      <div class="planning-card humaines">
+        <div class="planning-day">Vendredi</div>
+        <div class="planning-body">
+          <div class="planning-subject">🌍 Histoire-Géo</div>
+          <div class="planning-time">⏰ 09h – 11h</div>
+          <div class="planning-activity">Révision cours</div>
+        </div>
+        <div class="planning-dot"></div>
+      </div>
+
+      <div class="planning-card langues">
+        <div class="planning-day">Samedi</div>
+        <div class="planning-body">
+          <div class="planning-subject">🇬🇧 Anglais</div>
+          <div class="planning-time">⏰ 10h – 12h</div>
+          <div class="planning-activity">Vocabulary &amp; Grammar</div>
+        </div>
+        <div class="planning-dot"></div>
+      </div>
+
+      <div class="planning-card weekend">
+        <div class="planning-day">Dimanche</div>
+        <div class="planning-body">
+          <div class="planning-subject">😴 Repos</div>
+          <div class="planning-time">⏰ Toute la journée</div>
+          <div class="planning-activity">Recharge tes batteries !</div>
+        </div>
+        <div class="planning-dot"></div>
+      </div>
+
+    </div>
+
+    <!-- Progress bar hebdomadaire -->
+    <div class="progress-section reveal">
+      <h2 class="progress-title">Progression cette semaine</h2>
+      <div class="progress-bars">
+        <div class="prog-row">
+          <span>Maths</span>
+          <div class="prog-bar"><div class="prog-fill" style="--w:75%;--c:#2d9cdb"></div></div>
+          <span class="prog-pct">75%</span>
+        </div>
+        <div class="prog-row">
+          <span>Physique</span>
+          <div class="prog-bar"><div class="prog-fill" style="--w:60%;--c:#f2994a"></div></div>
+          <span class="prog-pct">60%</span>
+        </div>
+        <div class="prog-row">
+          <span>SVT</span>
+          <div class="prog-bar"><div class="prog-fill" style="--w:50%;--c:#52b788"></div></div>
+          <span class="prog-pct">50%</span>
+        </div>
+        <div class="prog-row">
+          <span>Français</span>
+          <div class="prog-bar"><div class="prog-fill" style="--w:40%;--c:#9b51e0"></div></div>
+          <span class="prog-pct">40%</span>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-logo">✦ Révision Tle D</p>
+      <p class="footer-copy">© 2026 Révision Tle D — conçu par T-tech. Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+  <script>
+    // Animate progress bars on scroll
+    const fills = document.querySelectorAll(".prog-fill");
+    const progObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.width = e.target.style.getPropertyValue("--w");
+          progObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    fills.forEach(f => { f.style.width = "0"; progObs.observe(f); });
+  </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+/* fiches.css : états de chargement et petits ajouts (pages Fiches) */
+.fiches-status {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--text-muted);
+  padding: 40px 0;
+  font-size: 0.95rem;
+}
+
+.fiches-retry {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 22px;
+  border: 0;
+  border-radius: 100px;
+  background: var(--green-deep);
+  color: var(--white);
+  font: 500 0.9rem var(--font-body);
+  cursor: pointer;
+  transition: background 0.25s;
+}
+.fiches-retry:hover { background: var(--green-mid); }
+
+/* Nombre de fiches affiché sur la carte d'une matière */
+.card-meta {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--green-mid);
+}
+
+/* Fiche dont le PDF est momentanément indisponible */
+.fiche-item.is-unavailable {
+  opacity: 0.6;
+  cursor: default;
+}
+.fiche-item.is-unavailable:hover {
+  transform: none;
+  box-shadow: none;
+}

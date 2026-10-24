@@ -1,0 +1,202 @@
+/* ============================================
+   fiche.css — Pages de fiches individuelles
+   RévisionBAC · sans conflits avec style.css
+   et subpage.css
+   ============================================ */
+
+/* ─── PAGE HERO ──────────────────────────── */
+/* subpage.css met déjà background:cream, padding 140px 32px 70px → ok */
+
+/* Bulle déco : on écrase color-mix (non fiable) par rgba fixe */
+.page-hero-bg {
+  position: absolute;
+  top: -80px;
+  right: -100px;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(82, 183, 136, 0.15) 0%,
+    transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── PAGE TAG ───────────────────────────── */
+/* subpage.css met color:green-mid. On surcharge avec --tag-color inline */
+.page-tag {
+  color: var(--tag-color, var(--green-mid));
+  background: rgba(82, 183, 136, 0.1);
+}
+
+/* ─── TITRE : italic sur em ─────────────── */
+/* subpage.css met font-style:normal — on corrige */
+.page-title em {
+  font-style: italic;
+  color: var(--green-light);
+  font-size: 1em;
+}
+
+/* ─── BACK LINK ──────────────────────────── */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-bottom: 20px;
+  transition: color 0.25s, gap 0.25s;
+}
+.back-link:hover { color: var(--green-mid); gap: 10px; }
+
+/* ─── MAIN : resserre la largeur pour les fiches ── */
+/* subpage.css met max-width:1100px, trop large pour une liste */
+.subpage-main {
+  max-width: 720px;
+}
+
+/* ─── FICHE COUNT ────────────────────────── */
+.fiche-count {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.fiche-count span {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--green-mid);
+  background: rgba(45, 106, 79, 0.08);
+  padding: 4px 14px;
+  border-radius: 100px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+/* Trait horizontal après le badge */
+.fiche-count::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(0,0,0,0.08);
+}
+
+/* ─── FICHE LIST ─────────────────────────── */
+.fiche-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fiche-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.07);
+  border-radius: 16px;
+  padding: 20px 24px;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s var(--ease-bounce),
+              box-shadow 0.3s,
+              border-color 0.3s;
+}
+
+/* Barre accent gauche */
+.fiche-item::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--green-light);
+  transform: scaleY(0);
+  transition: transform 0.3s var(--ease-bounce);
+  border-radius: 3px 0 0 3px;
+}
+
+.fiche-item:hover {
+  transform: translateX(6px);
+  box-shadow: 0 8px 30px rgba(26,61,43,0.10);
+  border-color: rgba(82,183,136,0.3);
+}
+.fiche-item:hover::before { transform: scaleY(1); }
+
+/* Numéro leçon */
+.fiche-num {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 900;
+  color: var(--white);
+  background: var(--green-mid);
+  padding: 6px 12px;
+  border-radius: 10px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 44px;
+  text-align: center;
+}
+
+/* Infos */
+.fiche-info { flex: 1; min-width: 0; }
+
+.fiche-info h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--green-deep);
+  margin-bottom: 4px;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.25s;
+}
+.fiche-item:hover .fiche-info h3 { color: var(--green-mid); }
+
+.fiche-info p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Badge PDF */
+.fiche-pdf {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--green-mid);
+  background: rgba(45,106,79,0.08);
+  border: 1px solid rgba(45,106,79,0.2);
+  padding: 5px 13px;
+  border-radius: 100px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+.fiche-item:hover .fiche-pdf {
+  background: var(--green-mid);
+  color: var(--white);
+  border-color: var(--green-mid);
+}
+
+/* ─── STAGGER REVEAL FICHES ──────────────── */
+.fiche-list .fiche-item.reveal:nth-child(1) { transition-delay: 0.05s; }
+.fiche-list .fiche-item.reveal:nth-child(2) { transition-delay: 0.13s; }
+.fiche-list .fiche-item.reveal:nth-child(3) { transition-delay: 0.21s; }
+.fiche-list .fiche-item.reveal:nth-child(4) { transition-delay: 0.29s; }
+.fiche-list .fiche-item.reveal:nth-child(5) { transition-delay: 0.37s; }
+
+/* ─── RESPONSIVE ─────────────────────────── */
+@media (max-width: 600px) {
+  .page-hero { padding: 110px 20px 48px; }
+  .subpage-main { padding: 36px 20px 60px; }
+  .fiche-item { flex-wrap: wrap; gap: 12px; padding: 16px 18px; }
+  .fiche-pdf  { margin-left: auto; }
+  .fiche-info h3, .fiche-info p { white-space: normal; }
+}

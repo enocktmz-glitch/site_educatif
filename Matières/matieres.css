@@ -1,0 +1,22 @@
+/* matieres.css : états de chargement de la page Matières */
+.matieres-status {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 40px 0;
+  font-size: 0.95rem;
+}
+
+.matieres-retry {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 22px;
+  border: 0;
+  border-radius: 100px;
+  background: var(--green-deep);
+  color: var(--white);
+  font: 500 0.9rem var(--font-body);
+  cursor: pointer;
+  transition: background 0.25s;
+}
+
+.matieres-retry:hover { background: var(--green-mid); }

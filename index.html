@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self' https://*.supabase.co; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'"
+    />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <title>Révision Tle D</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <!-- LOADER -->
+    <div class="loader" id="loader">
+      <div class="loader-ring"></div>
+      <span class="loader-text">Révision Tle D</span>
+    </div>
+
+    <!-- CANVAS PARTICULES -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- NAVBAR -->
+    <nav id="navbar">
+      <div class="nav-inner">
+        <a class="nav-logo" href="#accueil">
+          <span class="logo-icon">✦</span>
+          Révision Tle D
+        </a>
+        <button class="burger" id="burger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#accueil" class="nav-link active">Accueil</a></li>
+          <li><a href="Matières/index.html" class="nav-link">Matières</a></li>
+          <li><a href="Fiches/index.html" class="nav-link">Fiches</a></li>
+          <li><a href="Planning/index.html" class="nav-link">Planning</a></li>
+          <li><a href="CV/index.html" class="nav-link cta">Concepteurs</a></li>
+          <li><a href="Cours Tle D/index.html" class="nav-link">Cours Tle D</a></li>
+          <li><a href="connexion.html" class="nav-link" id="auth-link">Connexion</a></li>
+
+        </ul>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="accueil" class="hero">
+      <div class="hero-content">
+        <p class="hero-tag reveal">Plateforme éducative · 2026</p>
+        <h1 class="hero-title reveal">
+          Révise<br /><em>smarter,</em><br />pas plus dur.
+        </h1>
+        <p class="hero-desc reveal">
+          Des fiches claires, des exercices ciblés et un planning intelligent
+          pour décrocher ton examen avec confiance.
+        </p>
+        <div class="hero-btns reveal">
+          <a href="Matières/index.html" class="btn-primary">Commencer →</a>
+          <a href="Fiches/index.html" class="btn-ghost">Voir les fiches</a>
+        </div>
+      </div>
+      <div class="hero-visual reveal">
+        <div class="card-float card-1">
+          <span class="card-emoji">📐</span>
+          <span>Mathématiques</span>
+        </div>
+        <div class="card-float card-2">
+          <span class="card-emoji">🧪</span>
+          <span>Sciences</span>
+        </div>
+        <div class="card-float card-3">
+          <span class="card-emoji">📖</span>
+          <span>Littérature</span>
+        </div>
+        <div class="card-float card-4">
+          <span class="card-emoji">🌍</span>
+          <span>Histoire-Géo</span>
+        </div>
+        <div class="orbit-ring"></div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats-bar">
+      <div class="stat reveal">
+        <strong class="count" data-target="12">0</strong>
+        <span>Matières</span>
+      </div>
+      <div class="divider"></div>
+      <div class="stat reveal">
+        <strong class="count" data-target="150">0</strong>
+        <span>Fiches de révision</span>
+      </div>
+      <div class="divider"></div>
+      <div class="stat reveal">
+        <strong class="count" data-target="300">0</strong>
+        <span>Exercices corrigés</span>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features">
+      <h2 class="section-title reveal">Tout ce dont tu as besoin</h2>
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="feature-icon">📚</div>
+          <h3>Fiches synthétiques</h3>
+          <p>Des résumés concis et visuels pour mémoriser l'essentiel rapidement.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">🗓️</div>
+          <h3>Planning intelligent</h3>
+          <p>Organise tes révisions semaine par semaine selon tes examens.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">✅</div>
+          <h3>Exercices corrigés</h3>
+          <p>Entraîne-toi sur des annales et vérifie tes réponses en un clic.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-inner">
+        <p class="footer-logo">✦ Révision Tle D</p>
+        <p class="footer-copy">© 2026 Révision Tle D — Tous droits réservés</p>
+      </div>
+    </footer>
+
+    <!-- Supabase (version fixée + empreinte d'intégrité) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.js"
+      integrity="sha384-Rj26LVGvoeRVR6+mwQmFfcR3QOBEwT+ZmuCWpuiqeTzJpCs0ER4ITAWGb4Hiy3Ok"
+      crossorigin="anonymous"
+    ></script>
+    <script src="supabase-config.js"></script>
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

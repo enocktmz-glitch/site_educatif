@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self' https://*.supabase.co; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'"
+    />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <title>Connexion · Révision Tle D</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="auth.css" />
+  </head>
+  <body class="auth-page">
+    <header class="auth-top">
+      <a class="nav-logo" href="index.html">
+        <span class="logo-icon">✦</span>
+        Révision Tle D
+      </a>
+    </header>
+
+    <main class="auth-wrap">
+      <section class="auth-card">
+        <div class="auth-tabs">
+          <button type="button" class="auth-tab active" data-mode="login">Connexion</button>
+          <button type="button" class="auth-tab" data-mode="signup">Inscription</button>
+        </div>
+
+        <p id="auth-msg" class="auth-msg" role="alert" hidden></p>
+
+        <!-- CONNEXION -->
+        <form id="form-login" class="auth-form">
+          <label>
+            Adresse e-mail
+            <input id="login-email" type="email" autocomplete="email" required maxlength="254" />
+          </label>
+          <label>
+            Mot de passe
+            <input id="login-password" type="password" autocomplete="current-password" required maxlength="72" />
+          </label>
+          <button type="submit" class="btn-primary">Se connecter</button>
+          <button type="button" class="auth-link" id="link-forgot">Mot de passe oublié ?</button>
+        </form>
+
+        <!-- INSCRIPTION -->
+        <form id="form-signup" class="auth-form" hidden>
+          <label>
+            Nom complet
+            <input id="signup-nom" type="text" autocomplete="name" required minlength="2" maxlength="100" />
+          </label>
+          <label>
+            Adresse e-mail
+            <input id="signup-email" type="email" autocomplete="email" required maxlength="254" />
+          </label>
+          <label>
+            Mot de passe
+            <input id="signup-password" type="password" autocomplete="new-password" required minlength="8" maxlength="72" />
+            <span class="auth-hint">8 caractères minimum, avec au moins une lettre et un chiffre.</span>
+          </label>
+          <label>
+            Confirmer le mot de passe
+            <input id="signup-password2" type="password" autocomplete="new-password" required minlength="8" maxlength="72" />
+          </label>
+          <button type="submit" class="btn-primary">Créer mon compte</button>
+        </form>
+
+        <!-- MOT DE PASSE OUBLIÉ -->
+        <form id="form-forgot" class="auth-form" hidden>
+          <h2 class="auth-title">Mot de passe oublié</h2>
+          <p class="auth-sub">Entre ton adresse e-mail : nous t'enverrons un lien pour choisir un nouveau mot de passe.</p>
+          <label>
+            Adresse e-mail
+            <input id="forgot-email" type="email" autocomplete="email" required maxlength="254" />
+          </label>
+          <button type="submit" class="btn-primary">Envoyer le lien</button>
+          <button type="button" class="auth-link" data-back>← Retour à la connexion</button>
+        </form>
+
+        <!-- NOUVEAU MOT DE PASSE -->
+        <form id="form-reset" class="auth-form" hidden>
+          <h2 class="auth-title">Nouveau mot de passe</h2>
+          <label>
+            Nouveau mot de passe
+            <input id="reset-password" type="password" autocomplete="new-password" required minlength="8" maxlength="72" />
+            <span class="auth-hint">8 caractères minimum, avec au moins une lettre et un chiffre.</span>
+          </label>
+          <label>
+            Confirmer le mot de passe
+            <input id="reset-password2" type="password" autocomplete="new-password" required minlength="8" maxlength="72" />
+          </label>
+          <button type="submit" class="btn-primary">Enregistrer</button>
+        </form>
+      </section>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.js"
+      integrity="sha384-Rj26LVGvoeRVR6+mwQmFfcR3QOBEwT+ZmuCWpuiqeTzJpCs0ER4ITAWGb4Hiy3Ok"
+      crossorigin="anonymous"
+    ></script>
+    <script src="supabase-config.js"></script>
+    <script src="auth.js"></script>
+    <script src="connexion.js"></script>
+  </body>
+</html>
