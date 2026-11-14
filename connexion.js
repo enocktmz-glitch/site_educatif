@@ -40,6 +40,7 @@
     clearMsg();
     Object.keys(forms).forEach((k) => { forms[k].hidden = k !== mode; });
     tabsBar.hidden = mode === "forgot" || mode === "reset";
+    $("google-block").hidden = mode === "forgot" || mode === "reset";
     tabs.forEach((t) => t.classList.toggle("active", t.dataset.mode === mode));
   }
 
@@ -213,17 +214,55 @@
     b.addEventListener("click", () => showMode("login"))
   );
 
+  /* ---------- Connexion avec Google ---------- */
+  const btnGoogle = $("btn-google");
+  btnGoogle.addEventListener("click", async () => {
+    clearMsg();
+    btnGoogle.disabled = true;
+    try {
+      // Le navigateur part chez Google, puis revient sur cette page avec la session
+      const { error } = await sb.auth.signInWithOAuth({
+        provider: "google",
+        options: { redirectTo: PAGE_URL },
+      });
+      if (error) {
+        btnGoogle.disabled = false;
+        showMsg(
+          isNetworkError(error)
+            ? MSG_DOWN
+            : "La connexion avec Google n'est pas disponible pour le moment. Utilise ton adresse e-mail.",
+          "error"
+        );
+      }
+    } catch (err) {
+      console.error(err);
+      btnGoogle.disabled = false;
+      showMsg(MSG_DOWN, "error");
+    }
+  });
+
   /* ---------- Démarrage ---------- */
   if (!sb) {
     showMsg("Configuration manquante : vérifie supabase-config.js et la balise <script> de Supabase.", "error");
     Object.values(forms).forEach((f) => f.querySelectorAll("button, input").forEach((el) => { el.disabled = true; }));
+    btnGoogle.disabled = true;
     return;
   }
 
-  // Lien d'e-mail expiré ou déjà utilisé
-  if (hash.includes("error_code=") || hash.includes("error=")) {
+  // Retour avec une erreur dans l'adresse (connexion Google annulée, lien d'e-mail expiré…)
+  const retourHash = new URLSearchParams(hash.replace(/^#/, ""));
+  const retourQuery = new URLSearchParams(window.location.search);
+  const urlError = retourHash.get("error") || retourQuery.get("error");
+  if (urlError) {
+    const urlCode = retourHash.get("error_code") || retourQuery.get("error_code") || "";
     history.replaceState(null, "", window.location.pathname);
-    showMsg("Ce lien n'est plus valide (expiré ou déjà utilisé). Refais ta demande.", "error");
+    if (/otp|expired/.test(urlCode)) {
+      showMsg("Ce lien n'est plus valide (expiré ou déjà utilisé). Refais ta demande.", "error");
+    } else if (urlError === "access_denied") {
+      showMsg("Connexion avec Google annulée. Tu peux réessayer ou utiliser ton adresse e-mail.", "error");
+    } else {
+      showMsg("La connexion n'a pas abouti. Réessaie, ou utilise ton adresse e-mail.", "error");
+    }
   }
 
   sb.auth.onAuthStateChange((event) => {
