@@ -543,3 +543,9 @@ footer {
   .stat { padding: 20px 30px; }
   .divider { width: 60px; height: 1px; }
 }
+
+.site-logo {
+    width: 180px;
+    height: auto;
+    object-fit: contain;
+}
